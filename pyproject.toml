@@ -1,35 +1,36 @@
-[tool.poetry]
+[project]
 name = "primal-page"
 version = "1.11.3"
 description = "Tooling and schemas for the primerschemes index"
-authors = ["ChrisKent <chrisgkent@gmail.com>"]
+authors = [{ name = "ChrisKent", email = "chrisgkent@gmail.com" }]
+requires-python = ">=3.9"
 readme = "README.md"
-repository = "https://github.com/ChrisgKent/primal-page"
+dependencies = [
+    "pydantic>=2.4.2,<3",
+    "requests>=2.31.0,<3",
+    "biopython~=1.83",
+    "typer>=0.12.3,<0.13",
+    "primalbedtools>=0.6.1,<0.7",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-pydantic = "^2.4.2"
-requests = "^2.31.0"
-biopython = "^1.83"
-typer = "^0.12.3"
-primalbedtools = "^0.6.1"
+[project.urls]
+Repository = "https://github.com/ChrisgKent/primal-page"
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.4.3"
-ruff = "^0.3.4"
-coverage = "^7.5.4"
-pre-commit = "^3.7.1"
+[project.scripts]
+primal-page = "primal_page.main:app"
 
-
-[tool.poetry.group.docs.dependencies]
-mkdocs-material = "^9.5.28"
+[dependency-groups]
+dev = [
+    "pytest>=7.4.3,<8",
+    "ruff>=0.3.4,<0.4",
+    "coverage>=7.5.4,<8",
+    "pre-commit>=3.7.1,<4",
+]
+docs = ["mkdocs-material>=9.5.28,<10"]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.scripts]
-primal-page = "primal_page.main:app"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.ruff.lint]
 select = [
