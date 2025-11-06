@@ -9,8 +9,8 @@ dependencies = [
     "pydantic>=2.4.2,<3",
     "requests>=2.31.0,<3",
     "biopython~=1.83",
-    "typer>=0.12.3,<0.13",
-    "primalbedtools>=0.6.1,<0.7",
+    "typer>=0.20.0",
+    "primalbedtools>=1.0.0",
 ]
 
 [project.urls]
@@ -32,18 +32,5 @@ docs = ["mkdocs-material>=9.5.28,<10"]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.ruff.lint]
-select = [
-    # pycodestyle
-    "E",
-    # Pyflakes
-    "F",
-    # pyupgrade
-    "UP",
-    # flake8-bugbear
-    "B",
-    # isort
-    "I",
-]
 ignore = ["E501", "B006"] # Ignore line length
 

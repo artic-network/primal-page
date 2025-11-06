@@ -324,7 +324,7 @@ name = "exceptiongroup"
 version = "1.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "typing-extensions", marker = "python_full_version < '3.13'" },
+    { name = "typing-extensions", marker = "python_full_version < '3.11'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/0b/9f/a65090624ecf468cdca03533906e7c69ed7588582240cfe7cc9e770b50eb/exceptiongroup-1.3.0.tar.gz", hash = "sha256:b241f5885f560bc56a59ee63ca4c6a8bfa46ae4ad651af316d4e81817bb9fd88", size = 29749, upload-time = "2025-05-10T17:42:51.123Z" }
 wheels = [
@@ -885,10 +885,10 @@ docs = [
 [package.metadata]
 requires-dist = [
     { name = "biopython", specifier = "~=1.83" },
-    { name = "primalbedtools", specifier = ">=0.6.1,<0.7" },
+    { name = "primalbedtools", specifier = ">=1.0.0" },
     { name = "pydantic", specifier = ">=2.4.2,<3" },
     { name = "requests", specifier = ">=2.31.0,<3" },
-    { name = "typer", specifier = ">=0.12.3,<0.13" },
+    { name = "typer", specifier = ">=0.20.0" },
 ]
 
 [package.metadata.requires-dev]
@@ -902,11 +902,11 @@ docs = [{ name = "mkdocs-material", specifier = ">=9.5.28,<10" }]
 
 [[package]]
 name = "primalbedtools"
-version = "0.6.2"
+version = "1.0.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a2/67/99c73f4949e7f8a58999af9df2cc3fa4179eb503a468e622a1c35b2f5b9f/primalbedtools-0.6.2.tar.gz", hash = "sha256:fe8d656fef3824c9f9af623cdad61a2ee00ca829c5856522b5f5b8a05d8860dc", size = 14106, upload-time = "2024-12-13T23:07:48.622Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/81/1b/315a71aa26804b2cd61912e6b8d1b29ee3b95d93c57cf1c09b8a87c09cca/primalbedtools-1.0.0.tar.gz", hash = "sha256:69dd012a02e711a73a7e23279dde4a2e5be973f69a245ac6e4de7f4f4b8e425b", size = 81797, upload-time = "2025-09-04T11:42:52.582Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/71/a1/a36e100ae069e4fa7fb3c5c8a8552cd14561ae3d687fa2c45807bdb3df74/primalbedtools-0.6.2-py3-none-any.whl", hash = "sha256:aaff1a44235f67f08b2acff623dfc37f01054fcec2d6dec25ee5ed6416defbc1", size = 15718, upload-time = "2024-12-13T23:07:46.248Z" },
+    { url = "https://files.pythonhosted.org/packages/ed/57/4ab6d7097f977b27db97dbd98d3d9092ebeda7de38e1000d4488f6fe1870/primalbedtools-1.0.0-py3-none-any.whl", hash = "sha256:84b5d5ff90273559460a3dffa697c085d2b07883319439e1085145f8ccff7424", size = 23215, upload-time = "2025-09-04T11:42:51.431Z" },
 ]
 
 [[package]]
@@ -1260,7 +1260,7 @@ wheels = [
 
 [[package]]
 name = "typer"
-version = "0.12.5"
+version = "0.20.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click", version = "8.1.8", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -1269,9 +1269,9 @@ dependencies = [
     { name = "shellingham" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c5/58/a79003b91ac2c6890fc5d90145c662fd5771c6f11447f116b63300436bc9/typer-0.12.5.tar.gz", hash = "sha256:f592f089bedcc8ec1b974125d64851029c3b1af145f04aca64d69410f0c9b722", size = 98953, upload-time = "2024-08-24T21:17:57.346Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8f/28/7c85c8032b91dbe79725b6f17d2fffc595dff06a35c7a30a37bef73a1ab4/typer-0.20.0.tar.gz", hash = "sha256:1aaf6494031793e4876fb0bacfa6a912b551cf43c1e63c800df8b1a866720c37", size = 106492, upload-time = "2025-10-20T17:03:49.445Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a8/2b/886d13e742e514f704c33c4caa7df0f3b89e5a25ef8db02aa9ca3d9535d5/typer-0.12.5-py3-none-any.whl", hash = "sha256:62fe4e471711b147e3365034133904df3e235698399bc4de2b36c8579298d52b", size = 47288, upload-time = "2024-08-24T21:17:55.451Z" },
+    { url = "https://files.pythonhosted.org/packages/78/64/7713ffe4b5983314e9d436a90d5bd4f63b6054e2aca783a3cfc44cb95bbf/typer-0.20.0-py3-none-any.whl", hash = "sha256:5b463df6793ec1dca6213a3cf4c0f03bc6e322ac5e16e13ddd622a889489784a", size = 47028, upload-time = "2025-10-20T17:03:47.617Z" },
 ]
 
 [[package]]
