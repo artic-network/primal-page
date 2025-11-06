@@ -3,7 +3,7 @@ name = "primal-page"
 version = "1.11.3"
 description = "Tooling and schemas for the primerschemes index"
 authors = [{ name = "ChrisKent", email = "chrisgkent@gmail.com" }]
-requires-python = ">=3.9,<=3.13"
+requires-python = ">=3.10,<=3.13"
 readme = "README.md"
 dependencies = [
     "pydantic>=2.4.2,<3",
