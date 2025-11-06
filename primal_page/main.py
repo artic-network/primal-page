@@ -1,13 +1,13 @@
 import json
 import pathlib
 import shutil
+from importlib.metadata import version
 from typing import Annotated, Optional
 
 import typer
 from Bio import Seq, SeqIO, SeqRecord
 from primalbedtools.bedfiles import BedFileModifier, BedLineParser, PrimerNameVersion
 
-from primal_page.__init__ import __version__
 from primal_page.aliases import app as aliases_app
 from primal_page.bedfiles import BedfileVersion
 from primal_page.build_index import create_index
@@ -47,7 +47,7 @@ app.add_typer(validate_app, name="validate", help="Validate a scheme")
 
 def typer_callback_version(value: bool):
     if value:
-        typer.echo(f"primal-page version: {__version__}")
+        typer.echo(f"primal-page version: {version('primal-page')}")
         raise typer.Exit()
 
 
