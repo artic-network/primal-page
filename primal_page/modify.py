@@ -1,18 +1,12 @@
 import hashlib
 import pathlib
-from typing import Optional
+from typing import Annotated, Optional
 
 import typer
-from typing_extensions import Annotated
 
+from primal_page.config import PRIMAL_PAGE_FAQ
 from primal_page.logging import log
-from primal_page.schemas import (
-    Collection,
-    Info,
-    Links,
-    PrimerClass,
-    SchemeStatus,
-)
+from primal_page.schemas import Collection, Info, Links, PrimerClass, SchemeStatus
 
 LICENSE_TXT_CC_BY_SA_4_0 = """\n\n------------------------------------------------------------------------
 
@@ -45,6 +39,21 @@ def hash_file(fname: pathlib.Path) -> str:
     return hash_md5.hexdigest()
 
 
+def create_status_badge(info: Info) -> str:
+    """
+    Create a badge for the README.md file
+    """
+    match info.status:
+        case SchemeStatus.TESTING | SchemeStatus.VALIDATED:
+            color = "green"
+        case SchemeStatus.WITHDRAWN | SchemeStatus.DEPRECATED:
+            color = "red"
+        case _:
+            color = "blue"
+
+    return f"[![Generic badge](https://img.shields.io/badge/STATUS-{info.status.value}-{color}.svg)]({PRIMAL_PAGE_FAQ})"
+
+
 def regenerate_readme(path: pathlib.Path, info: Info, pngs: list[pathlib.Path]):
     """
     Regenerate the README.md file for a scheme
@@ -61,6 +70,12 @@ def regenerate_readme(path: pathlib.Path, info: Info, pngs: list[pathlib.Path]):
         readme.write(
             f"# {info.schemename} {info.ampliconsize}bp {info.schemeversion}\n\n"
         )
+        # Add the status badge
+        readme.write(f"{create_status_badge(info)}\n\n")
+
+        # Add citation if present
+        for cit in info.citations:
+            readme.write(f"> If you use this scheme please cite: {cit}\n\n")
 
         readme.write(
             f"[primalscheme labs](https://labs.primalscheme.com/detail/{info.schemename}/{info.ampliconsize}/{info.schemeversion})\n\n"
