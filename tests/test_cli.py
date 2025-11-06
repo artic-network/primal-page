@@ -1,6 +1,7 @@
+from importlib.metadata import version
+
 from typer.testing import CliRunner
 
-from primal_page.__init__ import __version__
 from primal_page.main import app
 
 runner = CliRunner()
@@ -13,4 +14,4 @@ runner = CliRunner()
 def test_app_version():
     result = runner.invoke(app, ["--version"])
     assert result.exit_code == 0
-    assert __version__ in result.stdout
+    assert version("primal-page") in result.stdout

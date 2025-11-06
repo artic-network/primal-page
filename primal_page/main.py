@@ -1,18 +1,13 @@
 import json
 import pathlib
 import shutil
-from typing import Optional
+from importlib.metadata import version
+from typing import Annotated, Optional
 
 import typer
-from Bio import SeqIO, SeqRecord
-from primalbedtools.bedfiles import (
-    BedFileModifier,
-    BedLineParser,
-    PrimerNameVersion,
-)
-from typing_extensions import Annotated
+from Bio import Seq, SeqIO, SeqRecord
+from primalbedtools.bedfiles import BedFileModifier, BedLineParser, PrimerNameVersion
 
-from primal_page.__init__ import __version__
 from primal_page.aliases import app as aliases_app
 from primal_page.bedfiles import BedfileVersion
 from primal_page.build_index import create_index
@@ -21,10 +16,7 @@ from primal_page.download import app as download_app
 from primal_page.errors import InvalidReference, SchemeExists
 from primal_page.logging import log
 from primal_page.modify import app as modify_app
-from primal_page.modify import (
-    generate_files,
-    hash_file,
-)
+from primal_page.modify import generate_files, hash_file
 from primal_page.schemas import (
     Collection,
     Info,
@@ -55,7 +47,7 @@ app.add_typer(validate_app, name="validate", help="Validate a scheme")
 
 def typer_callback_version(value: bool):
     if value:
-        typer.echo(f"primal-page version: {__version__}")
+        typer.echo(f"primal-page version: {version('primal-page')}")
         raise typer.Exit()
 
 
@@ -76,6 +68,7 @@ def validate_ref_records(ref_records: list[SeqRecord.SeqRecord]):
     """
 
     for record in ref_records:
+        assert isinstance(record.seq, Seq.Seq)
         # Check DNA sequence
         seq_bases = set(record.seq)
         if not seq_bases.issubset(IUPACAmbiguousDNA):
