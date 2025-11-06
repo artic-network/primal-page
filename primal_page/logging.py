@@ -7,7 +7,12 @@ logging.basicConfig(
     level="NOTSET",
     format=FORMAT,
     datefmt="[%X]",
-    handlers=[RichHandler(markup=True)],
+    handlers=[
+        RichHandler(
+            markup=True,
+            keywords=["README.md", "info.json", "primer.bed", "reference.fasta"],
+        ),
+    ],
 )
 
 log = logging.getLogger("rich")

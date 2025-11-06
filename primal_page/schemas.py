@@ -10,11 +10,7 @@ from pydantic import BaseModel, PositiveInt
 from pydantic.functional_validators import AfterValidator
 
 from primal_page.bedfiles import BedfileVersion
-from primal_page.errors import (
-    InvalidSchemeID,
-    InvalidSchemeName,
-    InvalidSchemeVersion,
-)
+from primal_page.errors import InvalidSchemeID, InvalidSchemeName, InvalidSchemeVersion
 
 
 def hash_file(fname: pathlib.Path) -> str:
