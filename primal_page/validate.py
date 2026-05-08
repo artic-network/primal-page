@@ -135,7 +135,7 @@ def validate_ref_and_bed(infopath: pathlib.Path):
 
     # Look for chroms in the bedfile that are not in the reference.fasta
     delta = chrom_names - set(ref_index.keys())
-    if chrom_names - set(ref_index.keys()):
+    if delta:
         raise ValueError(
             f"{info_scheme_path}: chroms in primer.bed that are not in reference.fasta: {delta}"
         )

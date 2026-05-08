@@ -258,7 +258,7 @@ def author_remove(
     try:
         info.author_remove(author)
         log.info(f"Removed author: [blue]{author}[/blue] from {info.get_schemepath()}")
-    except KeyError:
+    except ValueError:
         raise typer.BadParameter(f"{author} is already not present") from None
 
     # Write the validated info.json and regenerate the README

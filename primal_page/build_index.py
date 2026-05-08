@@ -176,7 +176,7 @@ def check_consistency(existing_json, new_json):
             "primer_bed_md5"
         ]
         new_bed_hash = new_json[path[0]][path[1]][path[2]][path[3]]["primer_bed_md5"]
-        if existing_ref_hash != new_ref_hash:
+        if existing_bed_hash != new_bed_hash:
             raise ValueError(
                 f"Hash changed for {path[0]}/{path[1]}/{path[2]}/{path[3]}/primer.bed. Expected {existing_bed_hash} but got {new_bed_hash}"
             )
