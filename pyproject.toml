@@ -1,6 +1,6 @@
 [project]
 name = "primal-page"
-version = "1.12.1"
+version = "1.13.0"
 description = "Tooling and schemas for the primerschemes index"
 authors = [{ name = "ChrisKent", email = "chrisgkent@gmail.com" }]
 requires-python = ">=3.10,<3.14"
