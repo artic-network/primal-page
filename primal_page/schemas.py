@@ -198,7 +198,7 @@ class Info(BaseModel):
     status: SchemeStatus
     citations: set[str]
     authors: Annotated[list[str], AfterValidator(not_empty)]
-    algorithmversion: str
+    algorithmversion: str | None = None
     species: Annotated[set[int | str], AfterValidator(not_empty)]
     license: str = "CC BY-SA 4.0"
     primerclass: PrimerClass = PrimerClass.PRIMERSCHEMES

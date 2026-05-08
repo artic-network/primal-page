@@ -1,5 +1,6 @@
 import hashlib
 import pathlib
+import tempfile
 import unittest
 
 import requests
@@ -9,8 +10,11 @@ from primal_page.download import fetch_index, validate_hashes
 
 class TestValidateHashes(unittest.TestCase):
     def setUp(self) -> None:
-        self.outdir = pathlib.Path("tests/test_output")
-        self.outdir.mkdir(exist_ok=True)
+        self._tmpdir = tempfile.TemporaryDirectory()
+        self.outdir = pathlib.Path(self._tmpdir.name)
+
+    def tearDown(self) -> None:
+        self._tmpdir.cleanup()
 
     def test_invalid_hash(self):
         """

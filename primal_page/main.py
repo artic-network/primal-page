@@ -263,7 +263,7 @@ def create(
         status=schemestatus,
         citations=set(citations),
         authors=authors,
-        algorithmversion=algorithmversion,  # type: ignore
+        algorithmversion=algorithmversion,
         species=set(species),
         description=description,
         derivedfrom=derivedfrom,
