@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.10, <3.14"
 resolution-markers = [
     "python_full_version >= '3.11'",
@@ -683,7 +683,7 @@ wheels = [
 
 [[package]]
 name = "primal-page"
-version = "1.13.1"
+version = "1.13.2"
 source = { editable = "." }
 dependencies = [
     { name = "biopython" },
@@ -710,7 +710,7 @@ requires-dist = [
     { name = "primalbedtools", specifier = ">=1.0.0" },
     { name = "pydantic", specifier = ">=2.4.2,<3" },
     { name = "requests", specifier = ">=2.34.2,<3" },
-    { name = "typer", specifier = ">=0.20.0,<2.6" },
+    { name = "typer", specifier = ">=0.20.0,<0.26" },
 ]
 
 [package.metadata.requires-dev]
