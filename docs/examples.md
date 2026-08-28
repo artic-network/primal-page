@@ -46,7 +46,9 @@ Do not do this unless you have to.
 
 If you edit the `info.json` use `primal-page modify regenerate {info.json}` to validate the changes, and regenerate the README.md
 
-If you edit the `primer.bed` or `reference.fasta` use `primal-page dev regenerate {info.json}` to update the hashes in info.json need to be updated.
+If you edit the `primer.bed` or `reference.fasta` use `primal-page dev regenerate {info.json}` to update the hashes in the info.json. This reads `primer.bed` and `reference.fasta` as they are and never modifies them.
+
+To re-sort `primer.bed` and update the primernames to the current version, use `primal-page dev reformat {info.json}`. This rewrites `primer.bed` and `reference.fasta` in place (it will prompt first, pass `--yes` to skip), then regenerates the info.json and README.md.
 
 > If you are editing `primer.bed` or `reference.fasta` something has gone wrong
 
